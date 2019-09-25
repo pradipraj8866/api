@@ -2,12 +2,12 @@
 
 use Illuminate\Http\Request;
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiresource('/products','ProductController');
+Route::apiresource('products','ProductController');
 
 Route::group(['prefix'=>'products'],function(){
-	route::apiResource('/{product}/reviews','ReviewController');
+	route::apiResource('{product}/reviews','ReviewController');
 });
